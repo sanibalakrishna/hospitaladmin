@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useAuthContext } from "../hooks/useAuthContext";
 import HospitalCard from "./HospitalCard";
 import HospitalDetails from "./HospitalDetails";
-import { ToastContainer } from "react-toastify";
+
 import { HiOutlineSearch, HiOutlineFilter } from "react-icons/hi";
 import CreateHospital from "./CreateHosptal";
 
@@ -72,7 +72,6 @@ function Hospitals({ setMenu }) {
       </div>
       {!edit.open ? (
         <div className="flex flex-wrap gap-5 h-full overflow-scroll no-scrollbar p-5">
-          <ToastContainer />
           {hospitals.map((hospital) => {
             return (
               <HospitalCard

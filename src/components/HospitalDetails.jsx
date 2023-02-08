@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import hospitalicons from "../assets/hospital.png";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 function HospitalDetails({ edit, setEdit }) {
   const [name, setName] = useState(edit.data.name);
   const [showModal, setShowModal] = useState(false);
@@ -70,8 +70,6 @@ function HospitalDetails({ edit, setEdit }) {
             </div>
           </div>
         )}
-
-        <ToastContainer />
 
         <div className="flex justify-center items-center w-[50%] h-[50%]">
           <img src={hospitalicons} className="rounded-full h-full" />

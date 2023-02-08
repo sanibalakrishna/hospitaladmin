@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import reacticon from "../assets/doctor.png";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 
 function DoctorDetails({ edit, setEdit }) {
   const [name, setName] = useState(edit.data.name);
@@ -66,7 +66,7 @@ function DoctorDetails({ edit, setEdit }) {
           </div>
         </div>
       )}
-      <ToastContainer />
+
       <div className="flex justify-center items-center w-[50%] h-[50%]">
         <img src={reacticon} className="rounded-full h-full" />
       </div>

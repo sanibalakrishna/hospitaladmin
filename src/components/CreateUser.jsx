@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 
 function CreateUser({ setShowModal, setEdit }) {
   const [name, setName] = useState("");
@@ -26,7 +26,6 @@ function CreateUser({ setShowModal, setEdit }) {
   };
   return (
     <div className="flex flex-col justify-center  bg-[#08080896] items-center overflow-x-hidden overflow-y-auto fixed inset-0 z-100 outline-none focus:outline-none gap-5">
-      <ToastContainer />
       <div className="w-1/2 h-3/4 bg-white rounded-md flex flex-col justify-center items-center gap-5">
         <h1 className="font-bold font-serif text-3xl">User Details</h1>
         <div className="w-1/2">

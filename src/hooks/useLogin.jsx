@@ -1,32 +1,19 @@
 import { useState } from "react";
 import { useAuthContext } from "./useAuthContext";
 
+export const useLogin = () => {
+  const [error, setError] = useState(false);
 
-export const useLogin = ()=>{
-    const [error, setError] = useState(null);
-    const [isLoading, setIsLoading] = useState(null);
-    const { dispatch } = useAuthContext();
+  const { dispatch } = useAuthContext();
 
-    const login = (email,password)=>{
-        setIsLoading(true);
-        setError(null);
-        if(email=="admin@gmail.com" && password=="1234")
-        {  
-             localStorage.setItem("admin",JSON.stringify({email,password}))
-             dispatch({type:"LOGIN",payload:{email,password}})
-             setIsLoading(false);
-
-        }
-        else{
-            setIsLoading(false);
-            setError("Email and Password are Incorrect")
-        
-        }
-        
-        
-
+  const login = async (email, password) => {
+    if (email == "admin@gmail.com" && password == "1234") {
+      setError(false);
+      localStorage.setItem("admin", JSON.stringify({ email, password }));
+      await dispatch({ type: "LOGIN", payload: { email, password } });
+    } else {
+      setError(true);
     }
-    return {login,isLoading,error};
-
-    
-}
+  };
+  return { login, error };
+};

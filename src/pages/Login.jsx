@@ -30,11 +30,11 @@ function Login() {
       return;
     }
     login(email, password);
-
-    if (error) {
-      toast.success("Login succesful");
-    } else {
+    console.log(error.current);
+    if (error.current) {
       toast.error("Email and Password are Incorrect");
+    } else {
+      toast.success("Login succesful");
     }
   };
   return (

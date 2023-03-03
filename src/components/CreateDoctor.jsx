@@ -4,11 +4,13 @@ import { toast } from "react-toastify";
 function CreateDoctor({ setShowModal, setEdit }) {
   const [name, setName] = useState("");
   const [specilization, setSpecilization] = useState("");
+  const [arriveTime, setArriveTime] = useState("");
+  const [departTime, setDepartTime] = useState("");
 
   const handleNewDoctor = async () => {
     const response = await fetch(`https://hospitalapi.vercel.app/doctors/`, {
       method: "POST",
-      body: JSON.stringify({ name, specilization }),
+      body: JSON.stringify({ name, specilization, arriveTime, departTime }),
       headers: { "Content-Type": "application/json" },
     });
     const json = await response.json();
@@ -48,7 +50,7 @@ function CreateDoctor({ setShowModal, setEdit }) {
         <div className="w-1/2">
           <fieldset
             className={`border-2 hover:border-[#0198A5] rounded-lg  ${
-              name != "" && "border-[#0198A5]"
+              specilization != "" && "border-[#0198A5]"
             }`}
           >
             <legend className="ml-2.5 text-[#0198A5]">Specilization</legend>
@@ -58,6 +60,40 @@ function CreateDoctor({ setShowModal, setEdit }) {
                 className="outline-none pl-2 bg-transparent w-full"
                 value={specilization}
                 onChange={(e) => setSpecilization(e.target.value)}
+              />
+            </div>
+          </fieldset>
+        </div>
+        <div className="w-1/2">
+          <fieldset
+            className={`border-2 hover:border-[#0198A5] rounded-lg  ${
+              arriveTime != "" && "border-[#0198A5]"
+            }`}
+          >
+            <legend className="ml-2.5 text-[#0198A5]">Arrive Time</legend>
+            <div className="flex w-full gap-2 px-2">
+              <input
+                type="text"
+                className="outline-none pl-2 bg-transparent w-full"
+                value={arriveTime}
+                onChange={(e) => setArriveTime(e.target.value)}
+              />
+            </div>
+          </fieldset>
+        </div>
+        <div className="w-1/2">
+          <fieldset
+            className={`border-2 hover:border-[#0198A5] rounded-lg  ${
+              departTime != "" && "border-[#0198A5]"
+            }`}
+          >
+            <legend className="ml-2.5 text-[#0198A5]">Depart Time</legend>
+            <div className="flex w-full gap-2 px-2">
+              <input
+                type="text"
+                className="outline-none pl-2 bg-transparent w-full"
+                value={departTime}
+                onChange={(e) => setDepartTime(e.target.value)}
               />
             </div>
           </fieldset>

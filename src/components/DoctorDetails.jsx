@@ -5,6 +5,8 @@ import { toast } from "react-toastify";
 function DoctorDetails({ edit, setEdit }) {
   const [name, setName] = useState(edit.data.name);
   const [specilization, setSpecilization] = useState(edit.data.specilization);
+  const [arriveTime, setArriveTime] = useState(edit.data.arriveTime);
+  const [departTime, setDepartTime] = useState(edit.data.departTime);
   const [updateedit, setUpdateedit] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const updateDoctorDetails = async () => {
@@ -105,6 +107,44 @@ function DoctorDetails({ edit, setEdit }) {
                 }`}
                 value={specilization}
                 onChange={(e) => setSpecilization(e.target.value)}
+              />
+            </div>
+          </fieldset>
+        </div>
+        <div className="w-full">
+          <fieldset
+            className={`border-2 hover:border-[#0198A5] rounded-lg  ${
+              arriveTime != "" && "border-[#0198A5]"
+            }`}
+          >
+            <legend className="ml-2.5 text-[#0198A5]">Arrive Time</legend>
+            <div className="flex w-full gap-2 px-2">
+              <input
+                type="text"
+                className={`outline-none pl-2 w-full ${
+                  !updateedit && "pointer-events-none"
+                }`}
+                value={arriveTime}
+                onChange={(e) => setArriveTime(e.target.value)}
+              />
+            </div>
+          </fieldset>
+        </div>
+        <div className="w-full">
+          <fieldset
+            className={`border-2 hover:border-[#0198A5] rounded-lg  ${
+              departTime != "" && "border-[#0198A5]"
+            }`}
+          >
+            <legend className="ml-2.5 text-[#0198A5]">Depart Time</legend>
+            <div className="flex w-full gap-2 px-2">
+              <input
+                type="text"
+                className={`outline-none pl-2 w-full ${
+                  !updateedit && "pointer-events-none"
+                }`}
+                value={departTime}
+                onChange={(e) => setDepartTime(e.target.value)}
               />
             </div>
           </fieldset>
